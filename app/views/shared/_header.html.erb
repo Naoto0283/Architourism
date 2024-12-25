@@ -1,0 +1,15 @@
+<header class="w-full bg-blue-500 text-white p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <h1 class="text-2xl font-bold">
+      <%= link_to 'Architourism', root_path, class: 'text-white' %>
+    </h1>
+
+    <div class="ml-auto">
+      <% if logged_in? %>
+        <%= link_to 'ログアウト', logout_path, class: 'text-white hover:text-gray-300', data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to 'ログイン', login_path, class: 'text-white hover:text-gray-300' %>
+      <% end %>
+    </div>
+  </div>
+</header>

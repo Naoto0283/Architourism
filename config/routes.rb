@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :tasks
 
   #トップページのルーティング
   root "static_pages#top"

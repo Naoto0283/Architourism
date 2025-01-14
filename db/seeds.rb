@@ -12,6 +12,11 @@ Category.create!(
   [
     { name: '寺' },
     { name: '神社' },
-    { name: '住宅' }
+    { name: '住宅' },
+    { name: '茶室' },
+    { name: '城郭' },
+    { name: '公共建築' },
+    { name: '産業建築' },
+    { name: '交通関連建築' }
   ]
 )

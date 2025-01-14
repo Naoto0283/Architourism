@@ -4,4 +4,13 @@ class SpotsController < ApplicationController
   def map
     @spots = Spot.all
   end
+
+  def index
+    @spots = Spot.all
+  end
+
+  def show
+    @spot = Spot.find(params[:id])
+  end
+  
 end

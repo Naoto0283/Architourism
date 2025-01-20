@@ -6,11 +6,11 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.all.page(params[:page])
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true).includes(:category).page(params[:page])
   end
 
   def show
     @spot = Spot.find(params[:id])
   end
-  
 end

@@ -2,7 +2,7 @@ class SpotsController < ApplicationController
   skip_before_action :require_login
   
   def map
-    @spots = Spot.all
+    @spots = Spot.includes(:category).all
   end
 
   def index

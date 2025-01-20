@@ -46,6 +46,9 @@ gem 'gmaps4rails'
 #ページネーション機能
 gem 'kaminari'
 
+# 検索機能を実装するためのgem
+gem 'ransack'
+
 # ユーザー認証機能を提供するgem
 gem "sorcery"
 

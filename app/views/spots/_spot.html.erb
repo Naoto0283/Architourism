@@ -1,0 +1,29 @@
+<div id="board-id-<%= spot.id %>">
+  <div class="card shadow-xl ">
+    <div class="m-4">
+      <%# Spot名 %>
+      <div class="mt-4">
+        <div class="font-bold text-md">
+          <%= link_to spot.name, spot_path(spot), class: "link" %>
+        </div>
+      </div>
+
+      <%# Spotカテゴリ名・レーティング %>
+      <div class="mb-4">
+          <%# カテゴリ名 %>
+          <p class="text-white font-bold badge badge-primary mt-4">
+            <%= spot.category.name %>
+          </p>
+      </div>
+
+      <%# Spot住所 %>
+      <div class="mb-2">
+        <div class="flex justify-start">
+          <div class="text-sm">
+            <%= spot.address %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

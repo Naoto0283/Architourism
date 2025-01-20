@@ -43,6 +43,9 @@ gem 'geocoder'
 # Google Places APIを利用、オートコンプリート機能、インフォウィンドウの表示などのためのgem
 gem 'gmaps4rails'
 
+#ページネーション機能
+gem 'kaminari'
+
 # ユーザー認証機能を提供するgem
 gem "sorcery"
 

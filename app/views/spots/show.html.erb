@@ -81,8 +81,27 @@
                             <% end %>
                         </div>
                     </div>
+                </div> 
+
+                <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+                    <div class="mt-4 mb-20 text-center">
+                        <h1 class="text-black mt-4 badge badge-primary">口コミ一覧</h1>
+                        <% if @reviews.present? %>
+                            <%= render @reviews %>
+                        <% else %>
+                            <p>口コミがありません</p>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="mt-4 flex justify-center">
+            <%= link_to '口コミを投稿する', new_spot_review_path(@spot), class: 'btn btn-primary' %>
+        </div>
+    </div>
+
+    <div class="mt-4 flex justify-center">
+        <%= link_to '口コミを投稿する', new_spot_review_path(@spot), class: 'btn btn-primary' %>
     </div>
 </div>

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   get 'spots/map'
 
   # 一覧検索ページのルーティング
-  resources :spots, only: %i[index show]
+  resources :spots, only: %i[index show] do
+    resources :reviews, only: %i[new create edit destroy], shallow: true
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

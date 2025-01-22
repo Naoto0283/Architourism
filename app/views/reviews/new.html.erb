@@ -1,0 +1,9 @@
+<% content_for(:title, @spot.name) %>
+
+<div class="mt-4 mb-24">
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+        <label class="form-control">
+            <%= render 'reviews/form', review: @review, spot: @spot %>
+        </label>
+    </div>
+</div>

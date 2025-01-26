@@ -72,6 +72,7 @@ namespace :Spot do
       if spot_data
           # カテゴリIDを取得してデータハッシュに追加
           spot_data.merge!(
+            prefecture_id: row['都道府県ID'].to_i,
             category_id: row['カテゴリID'].to_i
           )
 

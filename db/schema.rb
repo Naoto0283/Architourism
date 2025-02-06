@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_01_26_080441) do
+ActiveRecord::Schema[7.2].define(version: 2025_02_06_073457) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,13 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_26_080441) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["name"], name: "index_prefectures_on_name", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -48,6 +55,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_01_26_080441) do
     t.datetime "updated_at", null: false
     t.integer "prefecture_id"
     t.index ["category_id"], name: "index_spots_on_category_id"
+    t.index ["prefecture_id"], name: "index_spots_on_prefecture_id"
   end
 
   create_table "tasks", force: :cascade do |t|

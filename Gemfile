@@ -52,6 +52,9 @@ gem 'ransack'
 # ユーザー認証機能を提供するgem
 gem "sorcery"
 
+#OpenAIAPIを使用、OpenAIのAPIをRubyで利用するためのGem
+gem 'ruby-openai'
+
 # 秘匿情報保護用のgem
 gem 'dotenv-rails', groups: [:development, :test]
 

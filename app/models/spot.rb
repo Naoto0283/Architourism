@@ -5,6 +5,7 @@ class Spot < ApplicationRecord
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 
   belongs_to :category
+  belongs_to :prefecture
   has_many :review, dependent: :destroy
 
   # ransackの検索可能な属性を定義

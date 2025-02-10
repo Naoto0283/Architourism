@@ -12,6 +12,8 @@
   <body>
     <div class="font-body-jp" style= "height: 650px;">
       <%= render 'shared/header' %>
+      <%# フラッシュメッセージ %>
+      <%= render 'layouts/flash_messages' %>      
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>

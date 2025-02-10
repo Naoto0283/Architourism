@@ -6,6 +6,18 @@ class SuggestionsController < ApplicationController
     prefecture_id = params[:prefecture_id]
     free_word = params[:free_word]
 
+    # 各ステップの未入力チェック
+    if category_id.blank?
+      flash[:alert] = "カテゴリーが未選択です"
+      redirect_to suggestions_path and return
+    elsif prefecture_id.blank?
+      flash[:alert] = "都道府県が未選択です"
+      redirect_to suggestions_path and return
+    elsif free_word.blank?
+      flash[:alert] = "自由記述を入力してください"
+      redirect_to suggestions_path and return
+    end
+
     # Spotデータから条件に合う候補を取得
     spots = Spot.where(category_id: category_id, prefecture_id: prefecture_id)
 

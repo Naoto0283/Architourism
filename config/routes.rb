@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   end
 
   #AI診断ページのルーティング
-  resources :suggestions, only: %i[index]
+  resources :suggestions, only: %i[index] do
+    collection do
+      get :result
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

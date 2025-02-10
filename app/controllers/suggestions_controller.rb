@@ -21,6 +21,12 @@ class SuggestionsController < ApplicationController
     # Spotデータから条件に合う候補を取得
     spots = Spot.where(category_id: category_id, prefecture_id: prefecture_id)
 
+    # 登録されているスポットが存在しない場合の処理
+    if spots.empty?
+      flash[:alert] = "条件に一致するおすすめスポットは見つかりませんでした。"
+      redirect_to suggestions_path and return
+    end
+
     # 取得したデータをAIで分析するためにテキスト化
     spot_names = spots.pluck(:name).join(', ')
     prompt_text = <<~TEXT

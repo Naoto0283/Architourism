@@ -1,15 +1,24 @@
-<header class="w-full bg-blue-500 text-white p-4">
-  <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold">
-      <%= link_to 'Architourism', root_path, class: 'text-white' %>
-    </h1>
-
-    <div class="ml-auto">
-      <% if logged_in? %>
-        <%= link_to 'ログアウト', logout_path, class: 'text-white hover:text-gray-300', data: { turbo_method: :delete } %>
-      <% else %>
-        <%= link_to 'ログイン', login_path, class: 'text-white hover:text-gray-300' %>
-      <% end %>
+<div class="navbar bg-primary text-white">
+    <div class="flex-1">
+        <%= link_to 'Architourism', root_path, class: "btn btn-ghost text-xl" %>
     </div>
-  </div>
-</header>
+    <div class="flex-none">
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </div>
+            <ul tabindex="0" class="menu dropdown-content bg-white text-black rounded-box z-[1] mt-4 w-52 p-2 shadow">
+            <li><%= link_to "マイページ", root_path, class: "text-sm hover:text-rose-400" %></li>
+            <% if logged_in? %>
+              <li><%= link_to 'ログアウト', logout_path, class: 'text-sm hover:text-rose-400', data: { turbo_method: :delete } %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', login_path, class: 'text-sm hover:text-rose-400' %></li>
+            <% end %>
+            <li><%= link_to "利用規約", root_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "プライバシーポリシー", root_path, class: "text-sm hover:text-rose-400" %></li>
+            </ul>
+        </div>
+    </div>
+</div>

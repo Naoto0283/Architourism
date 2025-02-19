@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
+  get "oauths/oauth"
+  get "oauths/callback"
 
   #トップページのルーティング
   root "static_pages#top"
 
   #ユーザー登録のルーティング
   resources :users, only: %i[new create]
+
+  # OAuth認証のコールバックを処理するルーティング（認証プロバイダからのリダイレクトを受け取る）
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" 
+
+  # 指定されたプロバイダ（GoogleやFacebookなど）でOAuth認証を開始するルーティング
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 
   #ログイン/ログアウト機能のルーティング
   get "login", to: "user_sessions#new"

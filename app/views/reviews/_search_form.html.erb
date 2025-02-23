@@ -1,0 +1,10 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl m-3">
+      <div class="flex justify-center">
+          <div class="join w-full">
+              <%= f.search_field :body_cont, class: 'input input-bordered join-item text-sm w-full', placeholder: '口コミを探す' %>
+              <%= f.submit '検索', class: 'btn join-item' %>
+          </div>
+      </div>
+  </div>
+<% end %>

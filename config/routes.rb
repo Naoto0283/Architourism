@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create edit destroy], shallow: true
   end
 
+  #口コミ検索ページのルーティング
+  resources :reviews, only: %i[index]
+
   #AI診断ページのルーティング
   resources :suggestions, only: %i[index] do
     collection do

@@ -3,9 +3,9 @@ class ReviewsController < ApplicationController
   before_action :require_login, only: %i[new]
   
   def index
-    @reviews = Review.all
+    @reviews = Review.includes(:spot, :user).all
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(distinct: true)
+    @reviews = @q.result(distinct: true).includes(:spot, :user)
   end
 
   def new

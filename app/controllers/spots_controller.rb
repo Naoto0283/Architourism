@@ -13,6 +13,10 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @review = Review.new
-    @reviews = @spot.review.includes(:user).order(created_at: :desc)
+    @reviews = @spot.reviews.includes(:user).order(created_at: :desc)
+  end
+
+  def bookmarks
+    @bookmark_spots = current_user.bookmark_spots.includes(:user).order(created_at: :desc)
   end
 end

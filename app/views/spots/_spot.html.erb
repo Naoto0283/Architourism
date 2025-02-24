@@ -18,9 +18,12 @@
 
       <%# Spot住所 %>
       <div class="mb-2">
-        <div class="flex justify-start">
+        <div class="flex justify-between items-center"> <!-- justify-between を追加 -->
           <div class="text-sm">
             <%= spot.address %>
+          </div>
+          <div class="ml-auto">
+            <%= render 'bookmark_buttons', { spot: spot } %>
           </div>
         </div>
       </div>

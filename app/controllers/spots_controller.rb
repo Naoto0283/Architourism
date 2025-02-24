@@ -15,4 +15,8 @@ class SpotsController < ApplicationController
     @review = Review.new
     @reviews = @spot.review.includes(:user).order(created_at: :desc)
   end
+
+  def bookmarks
+    @bookmark_spots = current_user.bookmark_spots.includes(:user).order(created_at: :desc)
+  end
 end

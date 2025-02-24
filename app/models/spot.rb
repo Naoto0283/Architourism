@@ -4,9 +4,11 @@ class Spot < ApplicationRecord
   after_validation :geocode
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 
+  belongs_to :user
   belongs_to :category
   belongs_to :prefecture
   has_many :review, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   # ransackの検索可能な属性を定義
   def self.ransackable_attributes(auth_object = nil)

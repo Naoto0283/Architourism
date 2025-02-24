@@ -7,7 +7,7 @@ class Spot < ApplicationRecord
   belongs_to :user
   belongs_to :category
   belongs_to :prefecture
-  has_many :review, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
 
   # ransackの検索可能な属性を定義

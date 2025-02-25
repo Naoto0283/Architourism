@@ -1,6 +1,29 @@
-<h1>マイページ</h1>
+<div class="min-h-screen flex flex-col items-center justify-start pt-16 px-4">
+  <!-- タイトル -->
+  <div class="text-xl sm:text-2xl font-bold mb-6">マイページ</div>
 
-<p>ユーザー名: <%= @user.name %></p>
-<p>メール: <%= @user.email %></p>
+  <div class="w-5/6 max-w-sm md:max-w-4xl">
+    <div class="bg-white rounded-lg shadow-lg p-6">
+      <!-- アイコンとタイトルを横並びにする -->
+      <div class="flex items-center mb-4">
+        <!-- アイコン -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-4 text-blue-500" viewBox="0 0 448 512">
+          <path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464l349.5 0c-8.9-63.3-63.3-112-129-112l-91.4 0c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3z"/>
+        </svg>
 
-<%= link_to "ブックマーク一覧", bookmarks_spots_path, class: "text-sm btm-nav-label" %>
+        <!-- タイトル -->
+        <h2 class="text-2xl font-semibold">ユーザー情報</h2>
+      </div>
+
+      <!-- ユーザー情報 -->
+      <div class="mb-4">
+        <p class="text-xl mb-2">ユーザー名: <strong><%= @user.name %></strong></p>
+        <p class="text-xl mb-4">メール: <strong><%= @user.email %></strong></p>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to "ブックマーク一覧", bookmarks_spots_path, class: "text-blue-500 hover:underline" %>
+      </div>
+    </div>
+  </div>
+</div>

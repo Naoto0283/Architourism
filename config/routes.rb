@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   #ユーザー登録のルーティング
   resources :users, only: %i[new create]
 
+  # プロフィール関連のルート
+  resources :profiles, only: [:index]
+
   # OAuth認証のコールバックを処理するルーティング（認証プロバイダからのリダイレクトを受け取る）
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" 

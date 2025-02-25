@@ -1,0 +1,6 @@
+<h1>マイページ</h1>
+
+<p>ユーザー名: <%= @user.name %></p>
+<p>メール: <%= @user.email %></p>
+
+<%= link_to "ブックマーク一覧", bookmarks_spots_path, class: "text-sm btm-nav-label" %>

@@ -72,8 +72,11 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  #RSpec を使ってテストを書くためのgem
+  #RSpecを使ってテストを書くためのgem
   gem 'rspec-rails'
+
+  #RSpec用のテストデータ作成するためのgem
+  gem 'factory_bot_rails'
 end
 
 group :development do

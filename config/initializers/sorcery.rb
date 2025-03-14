@@ -161,6 +161,8 @@ Rails.application.config.sorcery.configure do |config|
   # Google 認証の設定
     config.google.key = ENV['GOOGLE_CLIENT_ID']
     config.google.secret = ENV['GOOGLE_CLIENT_SECRET']
+    
+    # API設定で承認済みのリダイレクトURIとして登録したURLを設定
     config.google.callback_url = Settings.sorcery[:google_callback_url]
   # config.google.user_info_mapping = {:email => "email", :username => "name"}
   # config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"

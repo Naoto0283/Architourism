@@ -10,14 +10,16 @@
                 </svg>
             </div>
             <ul tabindex="0" class="menu dropdown-content bg-white text-black rounded-box z-[1] mt-4 w-52 p-2 shadow">
-            <li><%= link_to "マイページ", root_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "マイページ", profiles_path, class: "text-sm hover:text-rose-400" %></li>
             <% if logged_in? %>
               <li><%= link_to 'ログアウト', logout_path, class: 'text-sm hover:text-rose-400', data: { turbo_method: :delete } %></li>
             <% else %>
               <li><%= link_to 'ログイン', login_path, class: 'text-sm hover:text-rose-400' %></li>
             <% end %>
-            <li><%= link_to "利用規約", root_path, class: "text-sm hover:text-rose-400" %></li>
-            <li><%= link_to "プライバシーポリシー", root_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "場所検索", spots_map_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "一覧検索", spots_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "口コミ検索", reviews_path, class: "text-sm hover:text-rose-400" %></li>
+            <li><%= link_to "診断機能", suggestions_path, class: "text-sm hover:text-rose-400" %></li>
             </ul>
         </div>
     </div>

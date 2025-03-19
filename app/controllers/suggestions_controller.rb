@@ -31,8 +31,8 @@ class SuggestionsController < ApplicationController
     spot_names = spots.pluck(:name).join(', ')
     prompt_text = <<~TEXT
       ユーザーから以下の情報が入力されました：
-      カテゴリー: #{Category.find(category_id).name if category_id.present?}
-      都道府県: #{Prefecture.find(prefecture_id).name if prefecture_id.present?}
+      カテゴリー: #{Category.find(category_id).name}
+      都道府県: #{Prefecture.find(prefecture_id).name}
       要望: #{free_word}
 
       これに基づいて、以下の場所からおすすめを1つ選び、理由も説明してください：

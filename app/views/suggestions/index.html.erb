@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-start pb-20 px-8 bg-teal-100 height: 100vh">
+<div class="flex flex-col items-center justify-start pb-20 px-8 bg-teal-100 min-h-screen">
   <div class="bg-white mt-16 rounded-lg shadow-md w-full max-w-md px-10 py-8">
     <h1 class="text-2xl font-bold mb-4 text-gray-800 text-center font-zenmaru"><%= 'おすすめ診断' %></h1>
     <p class="text-md mb-4 text-gray-600 font-zenmaru">
@@ -19,7 +19,7 @@
       <div id="step2" class="step hidden">
         <div class="flex flex-col mb-6 text-center">
           <%= form.label :prefecture_id, '都道府県を選んでください', class: "font-zenmaru mb-2 text-lg text-gray-700" %>
-          <%= form.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, class: "font-zenmaru p-4 mt-2 border-2 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full" %>
+          <%= form.collection_select :prefecture_id, Prefecture.where(id: [32]), :id, :name, { prompt: "都道府県を選択" }, class: "font-zenmaru p-4 mt-2 border-2 border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full" %>
         </div>
         <button type="button" class="next-step w-full font-zenmaru bg-cyan-300 hover:bg-indigo-600 text-white py-3 px-8 rounded-lg shadow-lg transition ease-in-out duration-300" onclick="nextStep(2)">次へ</button>
       </div>

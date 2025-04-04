@@ -29,13 +29,42 @@ class SuggestionsController < ApplicationController
 
     # 取得したデータをAIで分析するためにテキスト化
     spot_names = spots.pluck(:name).join(', ')
+
+
+
+    category_name = Category.find(category_id).name
+    prefecture_name = Prefecture.find(prefecture_id).name
+
+    require 'google/apis/customsearch_v1'
+    search_service = Google::Apis::CustomsearchV1::CustomSearchAPIService.new
+    search_service.key = ENV['GOOGLE_SEARCH_API_KEY']
+
+    # 検索クエリを作成（例: "東京都 観光 自由記述"）
+    query = "文化財建築 #{spot_names} #{prefecture_name} #{category_name} #{free_word}"
+
+    # API 呼び出しをエラーハンドリング
+    search_result = search_service.list_cses(
+      cx: ENV['GOOGLE_CSE_ID'],
+      q: query,
+      num: 5
+    )
+
+    # 検索結果をテキスト化
+    web_info = search_result.items&.map do |item|
+      "#{item.title}: #{item.snippet}"
+    end&.join("\\n") || "インターネットからの情報が見つかりませんでした。"
+
     prompt_text = <<~TEXT
       ユーザーから以下の情報が入力されました：
       カテゴリー: #{Category.find(category_id).name}
       都道府県: #{Prefecture.find(prefecture_id).name}
+      カテゴリー: #{category_name}
+      都道府県: #{prefecture_name}
       要望: #{free_word}
-
       これに基づいて、以下の場所からおすすめを1つ選び、理由も説明してください：
+      さらに、インターネットから取得した情報は以下の通りです：
+      #{web_info}
+      これらの情報と、以下の場所リストを基に、おすすめを1つ選び、理由も説明してください：
       #{spot_names}
     TEXT
 

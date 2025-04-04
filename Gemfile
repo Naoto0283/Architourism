@@ -59,6 +59,9 @@ gem 'ruby-openai'
 # Railsアプリケーションで設定情報を管理する(APIキーやコールバックURLなど、環境ごとに異なる設定を行いたい場合)ためのgem
 gem 'config'
 
+#カスタマイズした検索機能を実装するためのGem 
+gem 'google-apis-customsearch_v1'
+
 # 秘匿情報保護用のgem
 gem 'dotenv-rails', groups: [:development, :test]
 

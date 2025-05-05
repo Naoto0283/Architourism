@@ -4,7 +4,7 @@ class Spot < ApplicationRecord
   after_validation :geocode
   validates :name, :latitude, :longitude, :place_id, presence: true, uniqueness: true
 
-  belongs_to :user, optional: true
+  belongs_to :user
   belongs_to :category
   belongs_to :prefecture
   has_many :reviews, dependent: :destroy

@@ -1,31 +1,31 @@
 <% content_for(:title, @spot.name) %>
 
 <div class="w-5/6 mx-auto max-w-sm">
-    <div class="mt-8">
-        <div class="card">
-            <div class="m-4">
-                <%# Spot画像 %>
-                <% if @spot.photo_reference.present? %>
-                    <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{@spot.photo_reference}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}", class: "rounded-xl" %>
-                <% end %>
-                <div class="flex items-center justify-between mt-4">
-                    <%# Spot名 %>
-                    <h1 class="font-bold text-xl">
-                        <%= @spot.name %>
-                    </h1>
+  <div class="mt-8">
+    <div class="card">
+        <div class="m-4">
+            <%# Spot画像 %>
+            <% if @spot.photo_reference.present? %>
+              <%= image_tag "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{@spot.photo_reference}&key=#{ENV["GOOGLE_MAPS_API_KEY"]}", class: "rounded-xl" %>
+            <% end %>
+            <div class="flex items-center justify-between mt-4">
+              <%# Spot名 %>
+              <h1 class="font-bold text-xl">
+                <%= @spot.name %>
+              </h1>
 
-                    <%# ブックマークボタン %>
-                    <div class="flex space-x-4">
-                        <%= render 'spots/bookmark_buttons', { spot: @spot } %>
-                    </div>
+                <%# ブックマークボタン %>
+                <div class="flex space-x-4">
+                  <%= render 'spots/bookmark_buttons', { spot: @spot } %>
                 </div>
-                <%# カテゴリ名 %>
-                <p class="text-black mt-4 badge badge-primary">
-                    <%= @spot.category.name %>
-                </p>
             </div>
+            <%# カテゴリ名 %>
+            <p class="text-black mt-4 badge badge-primary">
+              <%= @spot.category.name %>
+            </p>
         </div>
     </div>
+  </div>
 </div>
 
 <div class="h-[500px] flex flex-col items-center">

@@ -1,26 +1,26 @@
 <div class="navbar bg-primary text-white">
-    <div class="flex-1">
-        <%= link_to 'Architourism', root_path, class: "btn btn-ghost text-xl" %>
-    </div>
-    <div class="flex-none">
-        <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </div>
-            <ul tabindex="0" class="menu dropdown-content bg-white text-black rounded-box z-[1] mt-4 w-52 p-2 shadow">
-            <li><%= link_to "マイページ", profiles_path, class: "text-sm hover:text-rose-400" %></li>
-            <% if logged_in? %>
-              <li><%= link_to 'ログアウト', logout_path, class: 'text-sm hover:text-rose-400', data: { turbo_method: :delete } %></li>
-            <% else %>
-              <li><%= link_to 'ログイン', login_path, class: 'text-sm hover:text-rose-400' %></li>
-            <% end %>
-            <li><%= link_to "場所検索", spots_map_path, class: "text-sm hover:text-rose-400" %></li>
-            <li><%= link_to "一覧検索", spots_path, class: "text-sm hover:text-rose-400" %></li>
-            <li><%= link_to "口コミ検索", reviews_path, class: "text-sm hover:text-rose-400" %></li>
-            <li><%= link_to "診断機能", suggestions_path, class: "text-sm hover:text-rose-400" %></li>
-            </ul>
-        </div>
-    </div>
+  <div class="flex-1">
+    <%= link_to 'Architourism', root_path, class: "btn btn-ghost text-xl" %>
+  </div>
+  <div class="flex-none">
+      <div class="dropdown dropdown-end">
+          <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+          </div>
+          <ul tabindex="0" class="menu dropdown-content bg-white text-black rounded-box z-[1] mt-4 w-52 p-2 shadow">
+          <li><%= link_to "マイページ", profiles_path, class: "text-sm hover:text-rose-400" %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'ログアウト', logout_path, class: 'text-sm hover:text-rose-400', data: { turbo_method: :delete } %></li>
+          <% else %>
+            <li><%= link_to 'ログイン', login_path, class: 'text-sm hover:text-rose-400' %></li>
+          <% end %>
+          <li><%= link_to "場所検索", spots_map_path, class: "text-sm hover:text-rose-400" %></li>
+          <li><%= link_to "一覧検索", spots_path, class: "text-sm hover:text-rose-400" %></li>
+          <li><%= link_to "口コミ検索", reviews_path, class: "text-sm hover:text-rose-400" %></li>
+          <li><%= link_to "診断機能", suggestions_path, class: "text-sm hover:text-rose-400" %></li>
+          </ul>
+      </div>
+  </div>
 </div>

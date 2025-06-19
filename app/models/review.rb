@@ -6,10 +6,10 @@ class Review < ApplicationRecord
 
   # ransackの検索可能な属性を定義
   def self.ransackable_attributes(auth_object = nil)
-    ["body"]
+    ["spot_id", "body", "created_at", "updated_at"]
   end
   # 検索可能な関連付けを追加
   def self.ransackable_associations(auth_object = nil)
-    [] 
+    ["spot"] 
   end
 end

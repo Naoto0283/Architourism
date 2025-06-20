@@ -10,10 +10,16 @@
 
       <%# Spotカテゴリ名・レーティング %>
       <div class="mb-4">
-          <%# カテゴリ名 %>
-          <p class="text-white font-bold badge badge-primary mt-4">
-            <%= spot.category.name %>
+        <%# カテゴリ名 %>
+        <p class="text-white font-bold badge badge-primary mt-4">
+          <%= spot.category.name %>
+        </p>
+        <%# レーティング %>
+        <% if spot.rating.present? %>
+          <p class="text-sm text-white font-bold badge badge-primary mt-4">
+            ⭐️ <%= spot.rating %>
           </p>
+        <% end %>
       </div>
 
       <%# Spot住所 %>

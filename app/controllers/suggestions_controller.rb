@@ -28,7 +28,7 @@ class SuggestionsController < ApplicationController
     end
 
     # 取得したデータをAIで分析するためにテキスト化
-    spot_names = spots.pluck(:name).join(', ')
+    spot_names = spots.pluck(:name).shuffle.join(', ')
     category_name = Category.find(category_id).name
     prefecture_name = Prefecture.find(prefecture_id).name
 

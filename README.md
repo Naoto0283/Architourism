@@ -64,10 +64,10 @@
 
 | カテゴリ       | 技術スタック                                                              | 
 | -------------- | ------------------------------------------------------------------------- | 
-| フロントエンド | 7.2.2.1(Hotwire/Turbo/Stimulus), JavaScript, Tailwind CSS, daisyUI | 
+| フロントエンド | Rails 7.2.2.1(Hotwire/Turbo/Stimulus), JavaScript, Tailwind CSS, daisyUI | 
 | バックエンド   | Rails 7.2.2.1(Ruby3.3.6)                                                | 
 | データベース   | PostgreSQL                                                                | 
 | インフラ       | Render.com                                                      | 
 | 開発環境       | Docker                                                                    | 
 | 認証           | Sorcery, Googleログイン                                                   | 
-| API            | Google Maps API, Open AI API, Google Custom Search API                                         | 
+| API            | Google Maps API, OpenAI API, Google Custom Search API                                         | 

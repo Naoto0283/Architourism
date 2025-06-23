@@ -6,7 +6,6 @@ class SuggestionsController < ApplicationController
     prefecture_id = params[:prefecture_id]
     free_word = params[:free_word]
 
-    # 各ステップの未入力チェック
     if category_id.blank?
       flash[:alert] = "カテゴリーが未選択です"
       redirect_to suggestions_path and return
@@ -18,16 +17,13 @@ class SuggestionsController < ApplicationController
       redirect_to suggestions_path and return
     end
 
-    # Spotデータから条件に合う候補を取得
     spots = Spot.where(category_id: category_id, prefecture_id: prefecture_id)
 
-    # 登録されているスポットが存在しない場合の処理
     if spots.empty?
       flash[:alert] = "条件に一致するおすすめスポットは見つかりませんでした。"
       redirect_to suggestions_path and return
     end
 
-    # 取得したデータをAIで分析するためにテキスト化
     spot_names = spots.pluck(:name).shuffle.join(', ')
     category_name = Category.find(category_id).name
     prefecture_name = Prefecture.find(prefecture_id).name
@@ -36,7 +32,6 @@ class SuggestionsController < ApplicationController
     search_service = Google::Apis::CustomsearchV1::CustomSearchAPIService.new
     search_service.key = ENV['GOOGLE_SEARCH_API_KEY']
 
-    # 検索クエリを作成
     query = "文化財建築 #{spot_names} #{prefecture_name} #{category_name} #{free_word}"
 
     search_result = search_service.list_cses(
@@ -45,7 +40,6 @@ class SuggestionsController < ApplicationController
       num: 5
     )
 
-    # 検索結果をテキスト化
     web_info = search_result.items&.map do |item|
       "#{item.title}: #{item.snippet}"
     end&.join("\\n") || "インターネットからの情報が見つかりませんでした。"
@@ -69,7 +63,6 @@ class SuggestionsController < ApplicationController
       説明の初めには先に選んだスポットの名前を出してください。
     TEXT
     
-    # OpenAI APIの呼び出し
     client = OpenAI::Client.new
     response = client.chat(
       parameters: {
@@ -79,7 +72,6 @@ class SuggestionsController < ApplicationController
       }
     )
 
-    # AIの返答結果
     @ai_response = response.dig("choices", 0, "message", "content") || "診断結果が取得できませんでした。"
 
     render :result

@@ -2,7 +2,6 @@
 
 <%= render 'search_form', q: @q, url: reviews_path %>
 
-<%# reviewsデータ(一覧表示) %>
 <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl min-h-screen flex flex-col">
   <div class="mt-10 mb-28 flex-1 overflow-y-auto">
     <% if @reviews.present? %>

@@ -2,7 +2,11 @@
   <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl m-3">
     <div class="flex justify-center">
       <div class="join w-full">
-        <%= f.search_field :name_or_address_cont, class: 'input input-bordered join-item text-sm w-full', placeholder: '建造物を探す' %>
+        <div data-controller="autocomplete" data-autocomplete-url-value="/spots/auto_search" role="combobox" class="flex-grow w-full relative"> <%# class="w-full"を入れないとレイアウト崩れる %>
+          <%= f.search_field :name_or_address_cont, data: { autocomplete_target: 'input' }, class: 'input input-bordered text-xs w-full', placeholder: '建造物を探す' %>
+          <%= f.hidden_field :name, data: { autocomplete_target: 'hidden' } %>
+          <ul class="autocomplete-results absolute border border-gray-300 rounded-t-lg rounded-b-lg w-full max-h-60 overflow-auto z-50" data-autocomplete-target="results"></ul>
+        </div>
         <%= f.submit '検索', class: 'btn join-item' %>
       </div>
     </div>

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :reviews, only: %i[new create edit destroy], shallow: true
     collection do
       get :bookmarks
+      get :auto_search
     end
   end
 

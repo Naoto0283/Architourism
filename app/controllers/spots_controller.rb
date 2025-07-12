@@ -19,4 +19,11 @@ class SpotsController < ApplicationController
   def bookmarks
     @bookmark_spots = current_user.bookmark_spots.includes(:user).order(created_at: :desc)
   end
+
+  def auto_search
+    @spots = Spot.where("name ILIKE ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
 end
